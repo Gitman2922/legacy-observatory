@@ -183,11 +183,11 @@ const OPTICS_ITEMS = [
 
 const GRAMMY_DATA = [
   {key:"kendrick",name:"Kendrick Lamar",wins:27,noms:66,color:C.purple,    notable:["NLU: 5-category sweep (67th Grammys, 2025)","GNX: Best Rap Album (68th Grammys, 2026)","Luther: Record of Year (68th Grammys, 2026)","Pulitzer Prize (2018, first rapper)","Most-awarded hip-hop artist in Grammy history"],outsider:true,  withdrew:false},
-  {key:"drake",   name:"Drake",         wins:4, noms:51,color:C.gold,      notable:["Best Rap Song: Hotline Bling","Best Rap Song: God's Plan","Withdrew from eligibility (2022)"],outsider:false, withdrew:true},
+  {key:"drake",   name:"Drake",         wins:5, noms:55,color:C.gold,      notable:["Best Rap Song: Hotline Bling","Best Rap Song: God's Plan","Withdrew from eligibility (2022)"],outsider:false, withdrew:true},
   {key:"cole",    name:"J. Cole",       wins:1, noms:14,color:"#10b981",   notable:["1 win from 14 nominations","Widely seen as undervalued by Grammys"],outsider:true,  withdrew:false},
-  {key:"kanye",   name:"Kanye West",    wins:24,noms:75,color:C.teal,      notable:["Most wins: rap/hip-hop era","Lost Album of Year despite historic acclaim"],outsider:false, withdrew:false},
-  {key:"jayz",    name:"Jay-Z",         wins:24,noms:88,color:"#818cf8",   notable:["24 wins but 0 Album of the Year","Most nominations in history"],outsider:false, withdrew:false},
-  {key:"eminem",  name:"Eminem",        wins:15,noms:47,color:"#6b7280",   notable:["Best Rap Album 9 times","Won Album of Year with The Eminem Show"],outsider:false, withdrew:false},
+  {key:"kanye",   name:"Kanye West",    wins:24,noms:76,color:C.teal,      notable:["Most wins: rap/hip-hop era","Lost Album of Year despite historic acclaim"],outsider:false, withdrew:false},
+  {key:"jayz",    name:"Jay-Z",         wins:25,noms:89,color:"#818cf8",   notable:["24 wins but 0 Album of the Year","Most nominations in history"],outsider:false, withdrew:false},
+  {key:"eminem",  name:"Eminem",        wins:15,noms:47,color:"#6b7280",   notable:["Best Rap Album 9 times (record)","8× Grammy winner — never won Album of the Year despite nominations"],outsider:false, withdrew:false},
   {key:"wayne",   name:"Lil Wayne",     wins:5, noms:13,color:"#ef4444",   notable:["Tha Carter III: 1.02M opening week","5 Grammy wins across rap categories","Considered the greatest rapper alive circa 2008–2010"],outsider:false, withdrew:false},
   {key:"travis",  name:"Travis Scott",  wins:0, noms:12,color:"#f59e0b",   notable:["0 wins from 12 nominations","Astroworld — zero Grammy wins"],outsider:true,  withdrew:false},
   {key:"weeknd",  name:"The Weeknd",    wins:4, noms:23,color:"#e879f9",   notable:["Boycotted Grammys 2021 after 0 noms","Called process 'corrupt'"],outsider:true,  withdrew:true},
@@ -1543,7 +1543,7 @@ function LegitimacyTab(){
       <div style={{background:C.card,border:`1px solid #fbbf2433`,borderRadius:3,padding:"16px 18px",marginTop:6,marginBottom:14}}>
         <div style={{fontSize:10,color:"#fbbf24",letterSpacing:2,textTransform:"uppercase",marginBottom:10}}>The Epistemological Problem</div>
         <div style={{fontSize:11.5,color:"#7a6a50",lineHeight:2}}>
-          NLU's 71M first-week streams made it the largest debut week of any song in Kendrick's career by a factor of roughly 2×. Compare: "luther" ft. SZA — a smooth, accessible R&B crossover with one of pop's biggest names — debuted at ~68M first-week streams on GNX. A diss track about a specific person and a love song co-led by SZA performing at the same streaming velocity is either remarkable organic parity or it tells you the NLU number had a floor that wasn't entirely organic.
+          NLU's 70.9M first-week streams (over a partial 5-day tracking period) made it the largest debut of any song in Kendrick's career by a significant margin. Compare: "luther" ft. SZA — a smooth, accessible R&B crossover with one of pop's biggest names — debuted at 44.4M first-week streams on GNX. A diss track about one specific named person outperformed one of the most commercially accessible songs Kendrick has ever made by roughly 60%. Either NLU was genuinely that much more culturally explosive — or the floor of its number wasn't entirely organic.
           <br/><br/>
           The lawsuit's dismissal ensures we never find out the ratio. The cultural narrative hardened around option (a) — purely organic. Drake's position is that (b) or (c) is at minimum worth examining. He was denied the procedural mechanism that would have answered it. That is a factual statement about what happened — not a defense of Drake's legal strategy, which may have been poorly constructed even if the underlying claim had merit.
         </div>
@@ -1627,8 +1627,8 @@ function LegitimacyTab(){
     })}
 
     {/* ── NLU CONCLUSION ─────────────────────────────────────── */}
-    <SLabel>Conclusion — What The Record Shows</SLabel>
-    <div style={{marginTop:28,background:"linear-gradient(135deg,#0f0800,#0a0a0a)",border:`1px solid ${C.border}`,borderRadius:3,padding:"22px 24px"}}>
+    <div style={{marginTop:32}}><SLabel>Conclusion — What The Record Shows</SLabel></div>
+    <div style={{marginTop:8,background:"linear-gradient(135deg,#0f0800,#0a0a0a)",border:`1px solid ${C.border}`,borderRadius:3,padding:"22px 24px"}}>
       {[
         {color:C.red,   n:"1", head:"The legal outcome settled nothing factually.",
          body:"Claims dismissed at pleading — before any discovery, before any internal data was examined. A pleading dismissal means the claims weren't sufficiently stated as legal arguments. It is not a finding that the underlying events did not occur. The court did not rule that no manipulation happened. It ruled Drake hadn't pleaded it in a legally actionable way. Those are different conclusions, and conflating them is how a procedural outcome became a cultural verdict."},
@@ -1734,11 +1734,11 @@ function AwardsTab(){
     <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:20}}>
       <div style={{background:C.card,border:`1px solid ${C.purple}22`,borderRadius:3,padding:"14px 16px"}}>
         <div style={{fontSize:10,color:C.purple,letterSpacing:1.5,marginBottom:8,textTransform:"uppercase"}}>What Luther Proves (One Reading)</div>
-        <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.85}}>Luther's 68M first-week streams — on a non-beef, non-diss, SZA-assisted love song from a surprise album — demonstrates that Kendrick expanded his streaming ceiling as a result of the 2024 moment. Whether that ceiling expansion was earned organically or amplified by machinery, the result is the same: Kendrick's commercial position post-beef is stronger than before it. The beef was good for his numbers in every measurable dimension.</div>
+        <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.85}}>Luther's 44.4M first-week streams — on a non-beef, non-diss, SZA-assisted love song from a surprise album — demonstrates that Kendrick expanded his commercial position as a result of the 2024 moment. Whether that ceiling expansion was earned organically or amplified by machinery, the result is the same: Kendrick's commercial position post-beef is stronger than before it. The beef was good for his numbers in every measurable dimension.</div>
       </div>
       <div style={{background:C.card,border:`1px solid ${C.gold}22`,borderRadius:3,padding:"14px 16px"}}>
         <div style={{fontSize:10,color:C.gold,letterSpacing:1.5,marginBottom:8,textTransform:"uppercase"}}>What Luther Complicates (Other Reading)</div>
-        <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.85}}>Luther's streaming numbers are comparable to NLU's first-week figures — but Luther is a smooth crossover R&B-adjacent record with SZA, a proven pop hitmaker. If Luther (with every organic advantage: catchy, accessible, featuring a massive pop star) performs in the same range as a diss track about a specific person, it raises a question: did NLU reach those numbers because of what it was, or because of what was done to amplify it? The comparison isn't dispositive — but it's worth noting.</div>
+        <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.85}}>Luther's 44.4M first-week streams are still substantial — but NLU outperformed it by roughly 60%. A diss track about one named person, with no radio campaign, no advance notice, and no pop crossover appeal, debuted 60% higher than a smooth R&B love song featuring one of pop's biggest names. That gap is the question. Either NLU was genuinely that much more culturally explosive than a mainstream SZA collaboration — or part of its number had a floor that wasn't entirely organic. The comparison doesn't resolve the question. It sharpens it.</div>
       </div>
     </div>
     <div style={{background:"#0f0f0f",border:`1px solid #9ca3af22`,borderRadius:3,padding:"14px 16px",marginBottom:20}}>
