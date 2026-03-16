@@ -151,7 +151,7 @@ const BEEF_TIMELINE = [
   {date:"Apr 30, 2024", event:"Family Matters",        actor:"Drake",   type:"response",verdict:"buried",  desc:"Drake's 12-minute major response. Allegations about Dave Free, Kendrick's relationship, paternity. Released at night — Kendrick had two tracks ready to drop simultaneously, burying the news cycle."},
   {date:"Apr 30, 2024", event:"Meet the Grahams",      actor:"Kendrick",type:"shot",   verdict:"win",     desc:"Addressed to Drake's parents. Secret daughter allegations. Tactical timing: dropped same night as Family Matters. Media covered MtG and NLU; Family Matters was an afterthought within 24 hours."},
   {date:"Apr 30, 2024", event:"Not Like Us",           actor:"Kendrick",type:"shot",   verdict:"cultural",desc:"'Certified pedophile' hook. 71M first-week streams. Became the anthem of 2024. Later: the subject of Drake's core legal/philosophical argument."},
-  {date:"May 25, 2024", event:"Kia Forum Show",        actor:"Kendrick",type:"event",  verdict:"cultural",desc:"Live Compton performance. NLU performed multiple times. Photographed imagery of OVO owl. Simultaneous stream event. Second major cultural wave."},
+  {date:"May 25, 2024", event:"The Pop Out — Kia Forum",        actor:"Kendrick",type:"event",  verdict:"cultural",desc:"Live Compton performance headlined by Kendrick, billed as the Pop Out. NLU performed multiple times. Photographed imagery of OVO owl. Simultaneous stream event. J. Cole made a surprise appearance. Second major cultural wave — framed as a celebration of the W."},
   {date:"Jun 22, 2024", event:"NLU Music Video",       actor:"Kendrick",type:"event",  verdict:"cultural",desc:"Official video. Aerial Compton shots, OVO imagery, owl targets. Third wave of coverage. Grammy campaign begins in earnest."},
   {date:"Oct 2024",     event:"Drake Sues UMG",        actor:"Drake",   type:"legal",  verdict:"filed",   desc:"Drake files lawsuit: UMG and Spotify artificially inflated NLU by hundreds of millions of streams via bots and coordinated playlist placement, while suppressing Drake's response tracks."},
   {date:"Nov 2024",     event:"Drake Sues Spotify",    actor:"Drake",   type:"legal",  verdict:"filed",   desc:"Separate action against Spotify. Claims coordinated 'hitman' campaign using NLU as the weapon. Alleges data would prove manipulation if discovery were permitted."},
@@ -1443,34 +1443,42 @@ function LegitimacyTab(){
     </div>
 
     <SLabel>Timeline of Events — Beef Through Legal Aftermath</SLabel>
+    <div style={{display:"flex",gap:16,marginBottom:14,flexWrap:"wrap"}}>
+      {[{color:C.purple,label:"Kendrick"},{color:C.gold,label:"Drake"},{color:"#fbbf24",label:"Industry / Institutional"}].map(({color,label})=>(
+        <div key={label} style={{display:"flex",alignItems:"center",gap:6}}>
+          <div style={{width:8,height:8,borderRadius:"50%",background:color,flexShrink:0}}/>
+          <span style={{fontSize:9,color:"#555",letterSpacing:1}}>{label}</span>
+        </div>
+      ))}
+    </div>
     <div style={{marginBottom:22}}>
-      {BEEF_TIMELINE.map((e,i)=>(
+      {BEEF_TIMELINE.map((e,i)=>{
+        const actorColor=e.actor==="Kendrick"?C.purple:e.actor==="Drake"?C.gold:e.actor==="Industry"?"#fbbf24":C.orange;
+        return(
         <div key={i} style={{display:"flex",gap:12,marginBottom:8,alignItems:"flex-start"}}>
           <div style={{width:110,flexShrink:0,paddingTop:2}}>
             <div style={{fontSize:9,color:"#3a3030",letterSpacing:0.5}}>{e.date}</div>
           </div>
-          <div style={{width:3,background:`${typeColors[e.type]||"#333"}44`,borderRadius:2,flexShrink:0,minHeight:40,position:"relative"}}>
-            <div style={{width:3,height:3,borderRadius:"50%",background:typeColors[e.type]||"#333",position:"absolute",top:8,left:0}}/>
+          <div style={{width:3,background:`${actorColor}44`,borderRadius:2,flexShrink:0,minHeight:40,position:"relative"}}>
+            <div style={{width:3,height:3,borderRadius:"50%",background:actorColor,position:"absolute",top:8,left:0}}/>
           </div>
-          <div style={{flex:1,background:C.card,border:`1px solid ${e.type==="flag"?C.red+"44":C.border}`,borderLeft:`2px solid ${typeColors[e.type]||"#333"}`,borderRadius:3,padding:"9px 12px"}}>
+          <div style={{flex:1,background:C.card,border:`1px solid ${e.type==="flag"?C.red+"44":C.border}`,borderLeft:`2px solid ${actorColor}`,borderRadius:3,padding:"9px 12px"}}>
             <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:4,flexWrap:"wrap"}}>
-              <span style={{fontSize:12,color:e.actor==="Kendrick"?C.purple:e.actor==="Drake"?C.gold:e.actor==="Industry"?"#fbbf24":C.orange,fontStyle:"italic"}}>{e.event}</span>
+              <span style={{fontSize:12,color:actorColor,fontStyle:"italic"}}>{e.event}</span>
               <span style={{fontSize:8,color:"#555",background:"#1a1a1a",padding:"1px 6px",borderRadius:10}}>{e.actor}</span>
-              {e.verdict&&<span style={{fontSize:9,color:verdictColors[e.verdict]||"#888",background:`${verdictColors[e.verdict]||"#888"}15`,padding:"1px 7px",borderRadius:10}}>{verdictLabels[e.verdict]} {e.verdict}</span>}
+              {e.verdict&&<span style={{fontSize:9,color:"#555",background:"#1a1a1a",padding:"1px 7px",borderRadius:10}}>{verdictLabels[e.verdict]} {e.verdict}</span>}
               {e.type==="flag"&&<span style={{fontSize:9,color:C.red}}>⚠ alleged</span>}
             </div>
             <div style={{fontSize:10.5,color:"#5a4a30",lineHeight:1.75}}>{e.desc}</div>
           </div>
         </div>
-      ))}
+      })}
     </div>
-
-    <SLabel>The Central Paradox — Drake's Philosophical Argument</SLabel>
     <div style={{background:C.card,border:`1px solid ${C.red}33`,borderRadius:3,padding:"20px 22px",marginBottom:16}}>
       <div style={{fontSize:10,color:C.red,letterSpacing:3,textTransform:"uppercase",marginBottom:14}}>The Logic Chain</div>
       {[
         {n:"1",color:C.purple,title:"NLU's power rested on a specific allegation",body:"The song's hook — 'certified pedophile' — was not abstract criticism. It was a specific criminal characterization of a named, living person. The song's cultural dominance required people to engage with that allegation as if it had weight."},
-        {n:"2",color:C.orange,title:"Courts ruled the allegations legally non-factual",body:"Drake's defamation claims were dismissed on the grounds that these lyrics constitute hyperbolic artistic expression — the kind of statement 'no reasonable person' would interpret as a literal statement of verifiable fact. The legal system declined to treat them as factual claims."},
+        {n:"2",color:C.orange,title:"Courts ruled the allegations legally non-factual",body:"Drake's defamation claims were dismissed at the pleading stage — meaning the court evaluated whether the legal argument as written could survive, not whether the underlying facts were true or false. The standard applied: these lyrics constitute hyperbolic artistic expression that 'no reasonable person' would interpret as a literal verifiable claim. No discovery occurred. The court never examined whether the manipulation happened. The dismissal is a procedural outcome, not an empirical verdict on the facts."},
         {n:"3",color:C.red,title:"This creates a contradiction the culture has not resolved",body:"If no reasonable person believed the claims were literally true, what exactly were 600 million streams celebrating? Either: (A) people knew it wasn't literally true but celebrated it anyway — in which case the moment was tribalism, not truth — or (B) the legal standard is wrong and people did believe it, in which case the Grammys awarded Song of the Year for a smear that worked."},
         {n:"4",color:C.gold,title:"Drake's argument: the industry manufactured both the moment AND the legal shield",body:"If the allegations were amplified by machines (stream manipulation, playlist coordination, press briefing) to reach cultural saturation — and then the same institutions that amplified it disclaim its literal truth to escape legal liability — then the damage was done by design and the escape hatch was pre-planned. You can't claim it was just music after you used it like a weapon."},
         {n:"5",color:"#9ca3af",title:"The counterargument that doesn't land",body:"'F*ck tha Police' also wasn't a policy white paper. Art has always used hyperbole. The difference: NLU named a real living person with a specific charge that ends careers, was amplified by the largest music company in the world, and was then submitted for (and won) every Grammy category available. The institutional validation of the allegation is what makes it different from standard rap hyperbole."},
@@ -1579,17 +1587,23 @@ function LegitimacyTab(){
     </div>
     <SLabel>The Super Bowl — Feb 9, 2025</SLabel>
     <div style={{background:C.card,border:`1px solid ${C.border}`,borderRadius:3,padding:"16px 18px",marginBottom:20}}>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:16}}>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))",gap:16}}>
         <div>
           <div style={{fontSize:10,color:C.red,letterSpacing:1.5,marginBottom:8,textTransform:"uppercase"}}>The Sequence</div>
-          <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.9}}>Feb 2: Suits dismissed. "Certified pedophile" ruled legally non-factual hyperbole.<br/>Feb 9: Kendrick performs NLU at Super Bowl LIX. 133.5M viewers. Trump in attendance — first sitting president at a Super Bowl.<br/><br/>Seven days. The man the court legally cleared watched a 133M-person singalong of that allegation. Booking predated the beef — but the sequence is documented fact.</div>
+          <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.9}}>Feb 2: Suits dismissed. "Certified pedophile" ruled legally non-factual hyperbole.<br/>Feb 9: Kendrick performs NLU at Super Bowl LIX. 133.5M viewers — the most-watched halftime show in history. Trump in attendance — first sitting president at a Super Bowl.<br/><br/>Seven days. The man the court legally cleared watched a 133M-person singalong of that allegation. Booking predated the beef — but the sequence is documented fact.</div>
         </div>
         <div>
-          <div style={{fontSize:10,color:C.teal,letterSpacing:1.5,marginBottom:8,textTransform:"uppercase"}}>The Counterpoint</div>
+          <div style={{fontSize:10,color:C.teal,letterSpacing:1.5,marginBottom:8,textTransform:"uppercase"}}>The Performance</div>
+          <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.9}}>Kendrick opened by driving out of a 1980s Buick GNX. Samuel L. Jackson appeared as Uncle Sam. Serena Williams crip-walked during NLU. Kendrick teased the song mid-show: "I wanna play their favorite song, but you know they love to sue." The crowd sang the "A minor" line in unison. He closed with TV Off alongside DJ Mustard. The show was more political statement than concert — with Trump in the building.</div>
+        </div>
+        <div>
+          <div style={{fontSize:10,color:"#fbbf24",letterSpacing:1.5,marginBottom:8,textTransform:"uppercase"}}>The Counterpoint</div>
           <div style={{fontSize:11,color:"#5a4a30",lineHeight:1.9}}>Halftime bookings happen 12–18 months in advance. The NFL selected Kendrick in 2024 before NLU existed. The 7-day gap between dismissal and performance is scheduling, not coordination — the strongest counterargument. It does not resolve what the optics produced regardless of intent.</div>
         </div>
       </div>
     </div>
+
+    <SLabel>Conclusion — What The Record Shows</SLabel>
     <SLabel>Industry Optics Scorecard</SLabel>
       <Toggle on={showCounter} set={setShowCounter} label="Show counterpoints" color={C.teal}/>
     {OPTICS_ITEMS.map((item,i)=>{
@@ -1614,7 +1628,7 @@ function LegitimacyTab(){
 
     {/* ── NLU CONCLUSION ─────────────────────────────────────── */}
     <div style={{marginTop:28,background:"linear-gradient(135deg,#0f0800,#0a0a0a)",border:`1px solid ${C.border}`,borderRadius:3,padding:"22px 24px"}}>
-      <div style={{fontSize:9,letterSpacing:5,color:C.goldDim,textTransform:"uppercase",marginBottom:16}}>Conclusion — What The Record Shows</div>
+      <div style={{marginBottom:16}}>
 
       {[
         {color:C.red,   n:"1", head:"The legal outcome settled nothing factually.",
