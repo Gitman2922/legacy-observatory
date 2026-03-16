@@ -145,7 +145,7 @@ const BEEF_TIMELINE = [
   {date:"Mar 22, 2024", event:"Like That",             actor:"Kendrick",type:"shot",   verdict:"opening",desc:"Verse on Future/Metro Boomin track. 'Fuck the Big 3' — public shot. J. Cole initially responds, then apologizes and exits. Drake silent."},
   {date:"Mar 29, 2024", event:"Push Ups",              actor:"Drake",   type:"response",verdict:"neutral",desc:"Drake's first response. Mocks height, fashion label, OVO signings. Dropped quietly, no media rollout. Generally seen as mid-tier by press."},
   {date:"Apr 5, 2024",  event:"Taylor Made Freestyle", actor:"Drake",   type:"response",verdict:"loss",   desc:"Used AI-generated Tupac and Snoop vocals. Tupac estate sent cease & desist; Drake removed it. Widely mocked. Media framing: 'Drake can't win without a dead man's voice.'"},
-  {date:"~Apr 19, 2024",event:"The Deal (alleged)",    actor:"Industry",type:"flag",   verdict:"disputed",desc:"Drake alleges Kendrick/pgLang signed a ~1-year promotional/distribution deal approximately 3 days before Euphoria dropped. If accurate: the campaign infrastructure was in place before the 'organic' response launched. This allegation forms the spine of Drake's conspiracy claim."},
+  {date:"Apr 27, 2024", event:"Kendrick Signs New Interscope Deal",actor:"Industry",type:"event",desc:"Per legal filings, an additional contract agreement between Interscope Records and Kendrick Lamar was executed on April 27, 2024 — three days before Euphoria dropped on April 30. This was Kendrick’s first release under a new direct licensing deal with Interscope, after quietly departing TDE and Aftermath. Drake’s lawsuit alleged UMG had contractual authority to block or edit NLU but chose to promote it instead. The contract was produced in heavily redacted form during discovery. The suit was dismissed before the unredacted version was examined in court."},
   {date:"Apr 22, 2024", event:"Euphoria",              actor:"Kendrick",type:"shot",   verdict:"win",     desc:"6+ minute diss. Ghostwriting, height, family, 'not a rap god.' Media reception: unanimous immediate praise from Complex, Rolling Stone, Pitchfork, XXL — within hours of drop, before any serious analysis could occur."},
   {date:"Apr 26, 2024", event:"6:16 in LA",            actor:"Kendrick",type:"shot",   verdict:"win",     desc:"Alleges Drake has an informant inside Kendrick's circle. Short and pressuring. Media: another win."},
   {date:"Apr 30, 2024", event:"Family Matters",        actor:"Drake",   type:"response",verdict:"buried",  desc:"Drake's 12-minute major response. Allegations about Dave Free, Kendrick's relationship, paternity. Released at night — Kendrick had two tracks ready to drop simultaneously, burying the news cycle."},
@@ -168,7 +168,7 @@ const OPTICS_ITEMS = [
   {flag:true,  label:"Red Flag",  item:"NLU won Grammys for allegations courts ruled legally non-factual",     note:"Grammys awarded Song/Record of the Year to a song built on the hook 'certified pedophile' — the same claims courts found no reasonable person would believe as literal fact. The industry institutionalized the narrative it simultaneously declared legally indefensible."},
   {flag:true,  label:"Red Flag",  item:"Super Bowl platform awarded 7 days after lawsuit dismissal",           note:"Feb 2: suits dismissed. Feb 9: Kendrick performs NLU in front of 133M people at the Super Bowl. The NFL's decision to book Kendrick was made months earlier, but the institutional optics are stark: the same allegations a court ruled legally non-factual were then broadcast on the largest platform in American entertainment with zero counterpoint available to Drake."},
   {flag:true,  label:"Red Flag",  item:"Drake's response tracks received drastically less playlist placement", note:"Per Drake's lawsuit (dismissed before discovery): Family Matters and Push Ups received a fraction of the editorial playlist adds that NLU received. If accurate, this is measurable industry thumb on the scale — not a reflection of organic audience preference."},
-  {flag:true,  label:"Red Flag",  item:"The alleged deal timing (3 days before Euphoria)",                     note:"If a promotional infrastructure deal was signed 3 days before the first major volley, the 'spontaneous response' framing is structurally false. The campaign was pre-built. This doesn't mean the music was bad — it means the 'organic uprising' narrative was manufactured."},
+  {flag:true,  label:"Red Flag",  item:"Kendrick signed a new Interscope deal 3 days before Euphoria dropped",               note:"Per legal filings, a new contract between Interscope and Kendrick was executed April 27, 2024 — three days before Euphoria dropped. Drake’s lawsuit alleged UMG had contractual authority to block or edit NLU and chose not to — instead actively promoting it. The contract was produced in redacted form during discovery. Drake’s team demanded the unredacted version. The suit was dismissed before the contract was fully examined. If the contract contained incentives tied to the beef or promotional commitments, the ‘organic uprising’ framing is structurally false."},
   {flag:true,  label:"Red Flag",  item:"Family Matters news cycle buried within hours by simultaneous drops",  note:"Kendrick having two finished, mastered, mixed tracks ready to release the same night Drake dropped his biggest response is not something that happens spontaneously. The tactical ambush required advance preparation and, arguably, advance knowledge of Drake's timeline."},
   {flag:false, label:"Context",   item:"Kendrick has been a critical darling since 2012, pre-dating the beef", note:"The media alignment with Kendrick isn't new. GKMC (2012), TPAB (2015), DAMN. (2017) all received superlative reviews before any beef existed. The institutional preference is longstanding, not manufactured for this moment."},
   {flag:false, label:"Context",   item:"Drake withdrew from Grammy eligibility himself in 2022",               note:"He publicly called the Grammys 'no longer meaningful' and withdrew CLB from consideration. He cannot fully claim the institution is rigged when he spent a year telling his audience it didn't matter."},
@@ -1444,7 +1444,7 @@ function LegitimacyTab(){
 
     <SLabel>Timeline of Events — Beef Through Legal Aftermath</SLabel>
     <div style={{display:"flex",gap:16,marginBottom:14,flexWrap:"wrap"}}>
-      {[{c:C.purple,l:"Kendrick"},{c:C.gold,l:"Drake"},{c:"#fbbf24",l:"Industry"}].map(({c,l})=>(
+      {[{c:C.purple,l:"Kendrick"},{c:C.gold,l:"Drake"},{c:C.orange,l:"Industry"}].map(({c,l})=>(
         <div key={l} style={{display:"flex",alignItems:"center",gap:6}}>
           <div style={{width:8,height:8,borderRadius:"50%",background:c,flexShrink:0}}/>
           <span style={{fontSize:9,color:"#555"}}>{l}</span>
@@ -1453,21 +1453,18 @@ function LegitimacyTab(){
     </div>
     <div style={{marginBottom:22}}>
       {BEEF_TIMELINE.map((e,i)=>{
-        const aC=e.actor==="Kendrick"?C.purple:e.actor==="Drake"?C.gold:e.actor==="Industry"?"#fbbf24":C.orange;
+        const aC=e.actor==="Kendrick"?C.purple:e.actor==="Drake"?C.gold:C.orange;
         return(
         <div key={i} style={{display:"flex",gap:12,marginBottom:8,alignItems:"flex-start"}}>
           <div style={{width:110,flexShrink:0,paddingTop:2}}>
             <div style={{fontSize:9,color:"#3a3030",letterSpacing:0.5}}>{e.date}</div>
-          </div>
-          <div style={{width:3,background:`${aC}44`,borderRadius:2,flexShrink:0,minHeight:40,position:"relative"}}>
-            <div style={{width:3,height:3,borderRadius:"50%",background:aC,position:"absolute",top:8,left:0}}/>
           </div>
           <div style={{flex:1,background:C.card,border:`1px solid ${e.type==="flag"?C.red+"44":C.border}`,borderLeft:`2px solid ${aC}`,borderRadius:3,padding:"9px 12px"}}>
             <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:4,flexWrap:"wrap"}}>
               <span style={{fontSize:12,color:aC,fontStyle:"italic"}}>{e.event}</span>
               <span style={{fontSize:8,color:"#555",background:"#1a1a1a",padding:"1px 6px",borderRadius:10}}>{e.actor}</span>
               {e.verdict&&<span style={{fontSize:9,color:"#555",background:"#1a1a1a",padding:"1px 7px",borderRadius:10}}>{verdictLabels[e.verdict]} {e.verdict}</span>}
-              {e.type==="flag"&&<span style={{fontSize:9,color:C.red}}>⚠ alleged</span>}
+              {e.type==="flag"&&<span style={{fontSize:9,color:C.red}}>⚠ disputed</span>}
             </div>
             <div style={{fontSize:10.5,color:"#5a4a30",lineHeight:1.75}}>{e.desc}</div>
           </div>
@@ -1630,8 +1627,6 @@ function LegitimacyTab(){
     {/* ── NLU CONCLUSION ─────────────────────────────────────── */}
     <SLabel>Conclusion — What The Record Shows</SLabel>
     <div style={{marginTop:28,background:"linear-gradient(135deg,#0f0800,#0a0a0a)",border:`1px solid ${C.border}`,borderRadius:3,padding:"22px 24px"}}>
-      <div style={{fontSize:9,letterSpacing:5,color:C.goldDim,textTransform:"uppercase",marginBottom:16}}>Conclusion — What The Record Shows</div>
-
       {[
         {color:C.red,   n:"1", head:"The legal outcome settled nothing factually.",
          body:"Claims dismissed at pleading — before any discovery, before any internal data was examined. A pleading dismissal means the claims weren't sufficiently stated as legal arguments. It is not a finding that the underlying events did not occur. The court did not rule that no manipulation happened. It ruled Drake hadn't pleaded it in a legally actionable way. Those are different conclusions, and conflating them is how a procedural outcome became a cultural verdict."},
