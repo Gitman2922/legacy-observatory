@@ -1472,9 +1472,11 @@ function LegitimacyTab(){
             <div style={{fontSize:10.5,color:"#5a4a30",lineHeight:1.75}}>{e.desc}</div>
           </div>
         </div>
+        );
       })}
     </div>
-    <div style={{background:C.card,border:`1px solid ${C.red}33`,borderRadius:3,padding:"20px 22px",marginBottom:16}}>
+
+    <SLabel>The Central Paradox — Drake's Philosophical Argument</SLabel>
       <div style={{fontSize:10,color:C.red,letterSpacing:3,textTransform:"uppercase",marginBottom:14}}>The Logic Chain</div>
       {[
         {n:"1",color:C.purple,title:"NLU's power rested on a specific allegation",body:"The song's hook — 'certified pedophile' — was not abstract criticism. It was a specific criminal characterization of a named, living person. The song's cultural dominance required people to engage with that allegation as if it had weight."},
